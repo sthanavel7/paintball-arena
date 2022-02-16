@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>paintball arena</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+    <script src="//unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="shoot.js"></script>
+    <script src="gun.js"></script>
+  </head>
+
+  <body>
+    <a-scene id="scene">
+      <a-assets>
+        <a-asset-item id="gun" src="./models/soldier/scene.gltf">
+        </a-asset-item>
+        <audio id="footstep" src="./sounds/footStep.mp3"></audio>
+        <audio id="splash" src="./sounds/splash.mp3"></audio>
+      </a-assets>
+      <a-entity
+        sound="src:#footstep;autoplay:falsevolume:5poolSize:2;loop:false;"
+        id="sound1"
+      ></a-entity>
+      <a-entity
+        sound="src:#splash;autoplay:falsevolume:5poolSize:2;loop:false;"
+        id="sound2"
+      ></a-entity>
+      <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"
+      >
+        <a-cursor></a-cursor>
+        <a-entity
+          id="weapon"
+          gltf-model="#gun"
+          scale="0.05 0.05 0.05"
+          rotation="-20 -145 20"
+          position="0 -2.6 -0.4"
+        ></a-entity>
+      </a-entity>
+
+      <a-entity
+        environment="preset:checkerboard; skyType:gradient; lighting:point"
+      ></a-entity>
+
+      <a-entity bullets></a-entity>
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="#FBF2D4"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+      <a-entity>
+         <a-plane
+          id="wall1"
+          material="color:green"
+          geometry="height:2.5;width:25"
+          static-body
+          visible="true"
+          position="8 2.8 -16"
+          rotation="0 45 0"
+        ></a-plane>
+
+        <a-plane
+          id="wall2"
+          material="color:lightblue"
+          geometry="height:2.5;width:25"
+          static-body
+          visible="true"
+          position="10 2.8 -5"
+          rotation="0 0 0"
+        ></a-plane>
+
+        <a-plane
+          id="wall3"
+          material="color:red"
+          geometry="height:2.5;width:25"
+          static-body
+          visible="true"
+          position="-11 2.8 -20"
+          rotation="0 -45 0"
+        ></a-plane>
+
+        <a-plane
+        id="wall4"
+        material="color:orange"
+        geometry="height:2.5;width:25"
+        static-body
+        visible="true"
+        position="-22 2.8 -14"
+        rotation="0 80 0"
+      ></a-plane>
+
+      <a-plane
+      id="wall5"
+      material="color:pink"
+      geometry="height:2.5;width:25"
+      static-body
+      visible="true"
+      position="-2 2.8 -17"
+      rotation="0 45 0"
+    ></a-plane>
+
+    <a-plane
+    id="wall6"
+    material="color:purple"
+    geometry="height:2.5;width:25"
+    static-body
+    visible="true"
+    position="11 2.8 -13.5"
+    rotation="0 -45 0"
+  ></a-plane>
+
+  <a-plane
+  id="wall7"
+  material="color:green"
+  geometry="height:2.5;width:25"
+  static-body
+  visible="true"
+  position="-5 2.8 -35"
+  rotation="90 0 0"
+></a-plane>
+
+<a-plane
+id="wall8"
+material="color:neon"
+geometry="height:2.5;width:25"
+static-body
+visible="true"
+position="20 4 -30"
+rotation="-50 0 0"
+></a-plane> -->
+
+        <a-box
+          id="box1"
+          position="0 2.2 -6.33437"
+          color="orange"
+          depth="1"
+          height="1.5"
+          width="10"
+          static-body
+visible="true"
+
+        ></a-box>
+        <a-box
+          id="box2"
+          position="-5.63047 2.2 -9.65585"
+          color="red"
+          depth="1"
+          height="1.5"
+          width="10"
+          static-body
+visible="true"
+
+        ></a-box>
+        <a-box
+          id="box3"
+          position="2.5 2.2 -17.4559"
+          color="yellow"
+          depth="1"
+          height="1.5"
+          width="10"
+          static-body
+visible="true"
+
+        ></a-box>
+        <a-box
+          id="box4"
+          position="0 2.2 -21.58323"
+          color="green"
+          depth="1"
+          height="1.5"
+          width="10"
+          static-body
+visible="true"
+
+        ></a-box>
+        <a-box
+          id="box5"
+          position="-12.01326 2.2 -14.59535"
+          color="blue"
+          depth="1"
+          height="1.5"
+          static-body
+visible="true"
+
+          width="10"
+        ></a-box>
+        <a-box
+          id="box6"
+          position="-7.73232 2.2 -22.17969"
+          color="#16A2F6"
+          static-body
+visible="true"
+
+          depth="10"
+          height="1.5"
+          width="1"
+        ></a-box>
+        <a-box
+          id="box7"
+          position="-8.54977 2.3 -5.3525"
+          color="#purple"
+          depth="10"
+          height="1.5"
+          static-body
+visible="true"
+
+          width="1"
+        ></a-box>
+        <a-box
+          id="box8"
+          position="-4.67013 2.2 -18.0932"
+          color="#e271c0"
+          depth="10"
+          height="1.5"
+          width="1"
+          static-body
+visible="true"
+
+        ></a-box>
+        <a-box
+          id="box9"
+          position="5.90667 2.2 -15"
+          color="#97ed04"
+          depth="10"
+          height="1.5"
+          width="1"
+        ></a-box>
+        <a-box
+          id="box10"
+          position="3.59768 2.2 -8.18822"
+          color="#ed043e"
+          depth="10"
+          height="1.5"
+          width="1"
+        ></a-box>
+        <a-box
+          id="box11"
+          position="7.63783 2.2 -28.06952"
+          color="#eb5834"
+          depth="10"
+          height="1.5"
+          width="1"
+        ></a-box>
+        <a-box
+          id="box12"
+          position="-0.82929 2.2 -30.18869"
+          color="ebc934"
+          depth="1"
+          height="1.5"
+          width="10"
+        ></a-box>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
